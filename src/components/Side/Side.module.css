@@ -75,6 +75,19 @@
  max-width: 25px;
 }
 
+.Qbookmark{
+ display: inline-flex;
+ justify-content: center;
+ padding: 1rem;
+ border:1px solid #50E3C2;
+ border-radius:35%;
+ margin:0.5rem;
+ cursor: pointer;
+ color: #fff;
+ background-color: #50E3C2;
+ max-width: 25px;
+}
+
 .Qcontainer:focus{
     color: #fff;
     background-color: #926dde;

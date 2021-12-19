@@ -3,7 +3,9 @@ import {useNavigate, useParams} from "react-router-dom"
 import styles from "./Side.module.css"
 import { useSelector,useDispatch } from 'react-redux'
 import {changeQuestion,removeuser} from "../../redux/actions"
-import data from "../../data/data"
+import { getAuth,signOut } from 'firebase/auth'
+
+
 function Side() {
     const navigate=useNavigate()
     const params=useParams()
@@ -12,8 +14,9 @@ function Side() {
     const {displayName}=user;
     const dispatch = useDispatch();
 
-    const signOutHandler=()=>{
-        console.log("signing off");
+    const signOutHandler=async()=>{
+      const auth=getAuth()
+      const logout=await signOut(auth)
       dispatch(removeuser())
       navigate('/signIn')
     }
@@ -25,7 +28,7 @@ function Side() {
         </div>
         <div className={styles.navcontainer}>
             {state.map((item)=>{ return (
-                <div key={item.Qno} tabIndex={0} className={(Qno==item.Qno)?styles.Qselected:styles.Qcontainer} onClick={()=>{dispatch(changeQuestion(item.Qno))}} >
+                <div key={item.Qno} tabIndex={0} className={item.bookmark?styles.Qbookmark:(Qno==item.Qno)?styles.Qselected:styles.Qcontainer} onClick={()=>{dispatch(changeQuestion(item.Qno))}} >
                 <span className={styles.Qtext}>{item.Qno}</span>
                 </div>)})}
         </div>

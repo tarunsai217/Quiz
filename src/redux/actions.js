@@ -1,4 +1,4 @@
-import { SAVE_USER_CHOICE,SAVE_SINGLE_USER_CHOICE,CHANGE_CURRENT_Q ,CHANGE_MODAL_STATUS,SET_USER,REMOVE_USER} from "./types"
+import { SAVE_USER_CHOICE,SAVE_SINGLE_USER_CHOICE,CHANGE_CURRENT_Q ,SET_BOOKMARK, CHANGE_MODAL_STATUS,SET_USER,REMOVE_USER} from "./types"
 
 export const saveUserChoice=(number,data)=>{
     return {type:SAVE_USER_CHOICE,payload:{number,data}}
@@ -16,6 +16,10 @@ export const changeQuestion=(number)=>{
 
 export const changeModalStatus=(value)=>{
     return {type:CHANGE_MODAL_STATUS,payload:value}
+}
+
+export const setBookmark=(number)=>{
+    return{type:SET_BOOKMARK,payload:number}
 }
 
 //Authentication

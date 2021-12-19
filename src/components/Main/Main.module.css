@@ -10,6 +10,23 @@
     color:#adb5bd
 }
 
+.questionContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.questionContainer img{
+  cursor: pointer;  
+  max-height: 2rem;
+}
+
+.bookmark{
+    color: black;
+}
+/* .bookmark{
+    display: block;
+} */
+
 .Qno{
     display: flex;
     align-items: center;
