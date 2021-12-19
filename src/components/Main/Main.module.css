@@ -85,4 +85,5 @@
     background-color:#926dde;
     border-color: transparent;
     text-transform: uppercase;
+    cursor: not-allowed;
 }

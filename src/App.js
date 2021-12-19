@@ -1,5 +1,5 @@
 
-import './App.css';
+import styles from'./App.module.css';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import {Provider} from "react-redux"
 import { ToastContainer } from 'react-toastify'
@@ -13,17 +13,17 @@ import ForgotPassword from "./pages/ForgotPassword/Forgot"
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
+
 function App() {
   return (
     <Provider store={store}>
-    <div className="App">
+    <div className={styles.App}>
      <Router>
        <Routes>
        <Route path='/' element={<PrivateRoute/>} > 
        <Route path='/' element={<Home/>} />
        </Route>
          <Route path='/final' element={<Final/>}/> 
-         {/* <Route path='/:Qno' element={<Home/>} /> */}
          <Route path='/signIn' element={<SignIn/>}/>
          <Route path='/signUp' element={<SignUp/>}/>
          <Route path='/forgotPassword' element={<ForgotPassword/>}/>

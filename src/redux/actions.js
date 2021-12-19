@@ -1,9 +1,12 @@
-import { SAVE_USER_CHOICE,CHANGE_CURRENT_Q ,CHANGE_MODAL_STATUS,SET_USER,REMOVE_USER} from "./types"
+import { SAVE_USER_CHOICE,SAVE_SINGLE_USER_CHOICE,CHANGE_CURRENT_Q ,CHANGE_MODAL_STATUS,SET_USER,REMOVE_USER} from "./types"
 
 export const saveUserChoice=(number,data)=>{
     return {type:SAVE_USER_CHOICE,payload:{number,data}}
     }
 
+export const saveSingleUserChoice=(number,data)=>{
+    return {type:SAVE_SINGLE_USER_CHOICE,payload:{number,data}}
+}
 
 
 // SECOND REDUCER

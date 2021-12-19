@@ -3,3 +3,11 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.modalContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    filter: blur(2px);
+    position: relative;
+}

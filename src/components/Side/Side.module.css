@@ -6,8 +6,11 @@
 
 .heading {
     display: flex;
-    padding: 1rem;
+    align-items: center;
+    padding: 0.5rem;
     justify-content: space-around;
+    color: #757575;
+    border-bottom: 3px solid #e9ecf0;
     }
 
 .heading button{

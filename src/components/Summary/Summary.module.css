@@ -1,9 +1,46 @@
+
 .container{
     position:absolute;
-    top:50%;
+    top:40%;
     left:50%;
     transform: translate(-50%,-50%);
-    background-color: rgba(1,1,1,0.4);
+    background-color: white;
+    color:#926dde;
+    box-shadow: 2px 2px 4px #757575;
     z-index: 100;
     padding: 2rem;
+    filter: blur(0px);
+}
+
+.container h4{
+    margin: 1rem 0;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainer button{
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.75rem 2rem;
+
+    border-color: #926dde;
+    border:none;
+    border-radius: 0.25rem;
+    margin:0 2rem;
+}
+
+.submitButton{
+    background-color:#50E3C2 ;
+    color: white;
+    box-shadow: 0.5px 2px 5px #50E3C2;
+}
+
+.goBackButton{
+    background-color:#F7655A ;
+    color: #FFFFFF;
+    box-shadow: 0.5px 2px 5px #F7655A;
+
 }

@@ -1,20 +1,18 @@
-import React,{useState} from 'react'
-import {useNavigate, useParams} from "react-router-dom"
+import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import styles from "./Main.module.css"
-import {saveUserChoice,changeModalStatus,changeQuestion} from "../../redux/actions"
-import Summary from "../Summary/Summary"
+import {saveUserChoice,saveSingleUserChoice,changeModalStatus,changeQuestion} from "../../redux/actions"
 
 function Main() {
-    const params=useParams()
-    const navigate=useNavigate()
-    
-    const state=useSelector(state=>state.questions);
-    const {currentQ:Qno,showModal}=useSelector(state=>state.state)
-    const dispatch = useDispatch()
-    const {question,options,selectedAnswers}=state[Qno-1];
-    
 
+    const state=useSelector(state=>state.questions);
+    const {currentQ:Qno}=useSelector(state=>state.state)
+    const {question,options,selectedAnswers,multipleAns}=state[Qno-1];
+    const lastQno=state.length
+
+    const dispatch = useDispatch()
+    
+    
     
     const nextHandler=()=>{
         dispatch(changeQuestion(Qno+1))
@@ -25,31 +23,29 @@ function Main() {
     }
 
     const submitHandler=()=>{
-        console.log('submit');
         dispatch(changeModalStatus(true));
     }
     
     const answerHandler=(e)=>{      
         const choice=e.target.name;
-        dispatch(saveUserChoice(Qno,e.target.name));
+        multipleAns?dispatch(saveUserChoice(Qno,choice)):dispatch(saveSingleUserChoice(Qno,choice))
     }
 
     return (
         <div className={styles.container}>
            <h6 className={styles.Qno}>{`Question ${Qno}`}</h6>
-
-           <h4 className={styles.Q}>{question}</h4>
+           <h4 className={styles.Q}>{question}{multipleAns && <span>  (Select all that apply)</span>}</h4>
            {options.map((item)=>{return (<div key={item} className={styles.optionContainer}>
-               <input onClick={(e)=>{answerHandler(e)}} type="checkbox" defaultChecked={selectedAnswers.includes(item)?true:null} name={item} />
+               <input onClick={(e)=>{answerHandler(e)}} type="checkbox"  checked={selectedAnswers.includes(item)?true:false} name={item} />
                <label> {item}</label> 
                </div>)})}
 
            <div className={styles.buttonContainer}> 
            <button onClick={prevHandler} disabled={!(Qno>1)}>Previous</button>
-           <button onClick={nextHandler} disabled={!(Qno<15)}> Next </button>
-           {Qno==15 && <button onClick={submitHandler}>Submit</button>}
+           <button onClick={nextHandler} disabled={!(Qno<lastQno)}> Next </button>
+           {Qno===lastQno && <button onClick={submitHandler}>Submit</button>}
            </div>
-           {showModal && <Summary/>}
+           
         </div>
     )
 }
