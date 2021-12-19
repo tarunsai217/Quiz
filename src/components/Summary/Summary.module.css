@@ -1,0 +1,9 @@
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(1,1,1,0.4);
+    z-index: 100;
+    padding: 2rem;
+}

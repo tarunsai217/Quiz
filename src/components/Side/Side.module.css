@@ -1,0 +1,55 @@
+.container{
+    width:30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 720px){
+.container{
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-right: 2rem;
+}
+
+}
+
+@media only screen and (max-width: 420px){
+    .container{
+        grid-template-columns: 1fr 1fr;
+        padding-right: 2rem;
+}
+    
+}
+
+.Qcontainer{
+ display: inline-flex;
+ justify-content: center;
+ padding: 1rem;
+ border:1px solid #e9ecf0;
+ border-radius:35%;
+ margin:0.5rem;
+ cursor: pointer;
+ color: #757575;
+ background-color: #e9ecf0;
+ max-width: 25px;
+}
+
+.Qselected{
+ display: inline-flex;
+ justify-content: center;
+ padding: 1rem;
+ border:1px solid #926dde;
+ border-radius:35%;
+ margin:0.5rem;
+ cursor: pointer;
+ color: #fff;
+ background-color: #926dde;
+ max-width: 25px;
+}
+
+.Qcontainer:focus{
+    color: #fff;
+    background-color: #926dde;
+    border-color: #926dde;
+}
+
