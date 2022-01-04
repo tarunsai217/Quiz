@@ -11,7 +11,9 @@ import SignIn from "./pages/SignIn/SignIn"
 import SignUp from "./pages/SignUp/SignUp"
 import ForgotPassword from "./pages/ForgotPassword/Forgot"
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-
+import Form from "./pages/Form/Form"
+import Quiz from "./pages/Quiz/Quiz"
+import CreatedQuiz from './pages/Created/CreatedQuiz';
 
 function App() {
  
@@ -23,12 +25,16 @@ function App() {
        <Route path='/' element={<PrivateRoute/>} > 
        <Route path='/' element={<Home/>} />
        </Route>
-       <Route path='/' element={<PrivateRoute/>} > 
+       <Route path='/final' element={<PrivateRoute/>} > 
        <Route path='/final' element={<Final/>} />
        </Route>
          <Route path='/signIn' element={<SignIn/>}/>
          <Route path='/signUp' element={<SignUp/>}/>
          <Route path='/forgotPassword' element={<ForgotPassword/>}/>
+
+         <Route path='/form' element={<Form/>}/>
+         <Route path='/quiz' element={<Quiz/>} />
+         <Route path='/createdQuiz' element={<CreatedQuiz/>} />
        </Routes>
      </Router>
      <ToastContainer/>

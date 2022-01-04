@@ -1,0 +1,13 @@
+.parentContainer{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+
+.quizContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    flex: 1 1 70%;
+}

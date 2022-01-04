@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import {doc,onSnapshot } from 'firebase/firestore'
+import { db } from '../../Firebase/Firebase'
 import { useDispatch } from 'react-redux'
-import { setUser } from '../../redux/actions'
+import { setUser,setInitialState} from '../../redux/actions'
 import visibilityIcon from "../../assets/visibilityIcon.svg"
 import styles from "./SignIn.module.css"
 
@@ -39,7 +41,14 @@ function SignIn() {
 
       if (userCredential.user) {
         dispatch(setUser(userCredential.user)) 
-        navigate('/')
+        const docRef = doc(db, "users", userCredential.user.uid);
+        const unsub = onSnapshot(docRef, (doc) => {
+          console.log("doc updated",doc.data())
+          const {quizzes,createdQuizzes}=doc.data()
+          dispatch(setInitialState(quizzes,createdQuizzes))
+      });
+      navigate('/quiz')
+
       }
     } catch (error) {
       toast.error('Bad User Credentials')

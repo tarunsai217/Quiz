@@ -1,5 +1,5 @@
 import React from 'react'
-import {useNavigate, useParams} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import styles from "./Side.module.css"
 import { useSelector,useDispatch } from 'react-redux'
 import {changeQuestion,removeuser} from "../../redux/actions"
@@ -8,7 +8,6 @@ import { getAuth,signOut } from 'firebase/auth'
 
 function Side() {
     const navigate=useNavigate()
-    const params=useParams()
     const state = useSelector(state => state.questions)
     const {currentQ:Qno,user}=useSelector(state=>state.state)
     const {displayName}=user;
@@ -16,7 +15,7 @@ function Side() {
 
     const signOutHandler=async()=>{
       const auth=getAuth()
-      const logout=await signOut(auth)
+      await signOut(auth)
       dispatch(removeuser())
       navigate('/signIn')
     }

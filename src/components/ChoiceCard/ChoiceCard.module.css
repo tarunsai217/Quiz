@@ -1,0 +1,16 @@
+.options{
+    display: inline-flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: #926dde;
+    color: white;
+    padding:0.5rem;
+    margin:1rem 0.5rem;
+}
+
+.options img{
+    height: 1.5rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}

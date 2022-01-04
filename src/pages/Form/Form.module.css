@@ -1,0 +1,79 @@
+.parentContainer{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.formContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    flex:1 1 70%;
+    padding: 0 3rem;
+}
+.side form{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    min-width:40%;
+    padding:1rem ;
+}
+.side form textarea{
+    margin-bottom: 2rem;
+    outline: none;
+}
+.side form input{
+    width:100%;
+    height: 2rem;
+    outline: none;
+}
+
+.optionContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.field{
+    display: flex;
+}
+
+.answerContainer{
+    display: flex;
+    flex-direction: column;
+}
+.optionContainer button,.answerContainer button{
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    height: 2rem;
+    background-color: #926dde;
+    color: white;
+    border-color: #926dde;
+    border:none;
+    border-radius: 0.25rem;
+    margin-left:0.5rem;
+    margin-top: 0.125rem;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 2rem 1rem;
+}
+
+.submitButton{
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    height: 2rem;
+    background-color: #926dde;
+    color: white;
+    border:none;
+    border-radius: 0.25rem;
+    max-width: 10rem;
+    align-self:center;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+}

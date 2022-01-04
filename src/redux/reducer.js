@@ -1,5 +1,5 @@
 import data from "../data/data"
-import { SAVE_USER_CHOICE ,SAVE_SINGLE_USER_CHOICE,SET_BOOKMARK} from "./types"
+import { SAVE_USER_CHOICE ,SAVE_SINGLE_USER_CHOICE,SET_BOOKMARK, SET_QUESTIONS} from "./types"
 const initialState=[...data]
     export default (state=initialState,action)=>{
         console.log('beforestate',state,action)
@@ -17,7 +17,9 @@ const initialState=[...data]
             case SET_BOOKMARK:
                 state[action.payload-1].bookmark=!(state[action.payload-1].bookmark)
                 return [
-                    ...state]         
+                    ...state]     
+            case SET_QUESTIONS:
+                return [...action.payload]            
             default:
             return state;     
         }

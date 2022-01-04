@@ -1,0 +1,22 @@
+.quizCardContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:1rem;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    box-shadow: 1px 1px 4px rgba(1,1,1,0.4);
+    place-items: center;
+}
+
+.quizContent{
+    display: flex;
+    flex-direction: column;
+}
+.quizContent span{
+    margin-bottom: 0.5rem;
+}
+
+.quizCardContainer button{
+    height: 2rem;
+}

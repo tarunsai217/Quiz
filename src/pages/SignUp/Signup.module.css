@@ -12,7 +12,7 @@ body{
     padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
-    max-width: 280px;
+    width: 280px;
 }
 
 

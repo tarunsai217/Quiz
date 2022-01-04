@@ -1,4 +1,4 @@
-import { SAVE_USER_CHOICE,SAVE_SINGLE_USER_CHOICE,CHANGE_CURRENT_Q ,SET_BOOKMARK, CHANGE_MODAL_STATUS,SET_USER,REMOVE_USER} from "./types"
+import { SAVE_USER_CHOICE,SAVE_SINGLE_USER_CHOICE,CHANGE_CURRENT_Q ,SET_BOOKMARK, CHANGE_MODAL_STATUS,SET_USER,REMOVE_USER,SET_INITIAL_STATE,SET_QUESTIONS} from "./types"
 
 export const saveUserChoice=(number,data)=>{
     return {type:SAVE_USER_CHOICE,payload:{number,data}}
@@ -30,4 +30,12 @@ export const setUser=(user)=>{
 
 export const removeuser=()=>{
     return{type:REMOVE_USER}
+}
+
+export const setInitialState=(quizzes,createdQuizzes)=>{
+    return {type:SET_INITIAL_STATE,payload:{quizzes,createdQuizzes}}
+}
+
+export const setQuestions=(q)=>{
+    return {type:SET_QUESTIONS, payload:q}
 }

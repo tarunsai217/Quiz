@@ -18,6 +18,7 @@
 .questionContainer img{
   cursor: pointer;  
   max-height: 2rem;
+  color:green;
 }
 
 .bookmark{

@@ -1,0 +1,37 @@
+.questionCardContainer{
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    box-shadow: 1px 1px 4px rgba(1,1,1,0.4);
+}
+
+.tick{
+    height: 2rem;
+}
+
+.questionContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonContainer img {
+    padding:0.5rem;
+    cursor: pointer;
+    height: 1.5rem;
+}
+
+.question{
+    display: flex;
+    place-items: center;
+    margin-bottom: 1rem;
+}
+
+.optionContainer{
+    display: flex;
+    flex-direction: column;
+}
+.option{
+    margin-bottom: 0.5rem;
+}

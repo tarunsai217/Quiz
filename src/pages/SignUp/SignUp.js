@@ -6,10 +6,10 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth'
-import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { setDoc, doc, serverTimestamp, onSnapshot } from 'firebase/firestore'
 import { db } from '../../Firebase/Firebase'
 import { useDispatch } from 'react-redux'
-import { setUser } from '../../redux/actions'
+import { setUser,setInitialState } from '../../redux/actions'
 import visibilityIcon from "../../assets/visibilityIcon.svg"
 import styles from "./Signup.module.css"
 
@@ -56,8 +56,15 @@ function SignUp() {
       formDataCopy.timestamp = serverTimestamp()
 
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
+       
+        const docRef = doc(db, "users", userCredential.user.uid);
+        const unsub = onSnapshot(docRef, (doc) => {
+          console.log("doc updated",doc.data())
+          const {quizzes,createdQuizzes}=doc.data()
+          dispatch(setInitialState(quizzes,createdQuizzes))
+      });
 
-      navigate('/')
+      navigate('/quiz')
     } catch (error) {
       toast.error('Something went wrong with registration')
     }

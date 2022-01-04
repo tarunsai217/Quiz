@@ -13,9 +13,9 @@ function Summary() {
     }
     return (
         <div className={styles.container}>
-            <span> You are yet to answer </span> 
+            {unasnwered.length!==0 && <span> You are yet to answer </span>} 
              {unasnwered.map(item=>{return <span key={item.Qno}>{`${item.Qno} ,`}</span>})}
-            <span>Questions</span> 
+            {unasnwered.length!==0 &&<span>Questions</span>} 
          <h4>Do you still wish to submit?</h4>
          <div className={styles.buttonContainer}>
          <button onClick={submitHandler} className={styles.submitButton}> Submit</button>    
